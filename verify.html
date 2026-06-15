@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificação de Segurança</title>
-    <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         * {
@@ -22,13 +21,14 @@
             justify-content: center;
         }
 
-        .verify-container {
+        .verify-box {
             background: white;
             width: 100%;
-            max-width: 460px;
-            padding: 2rem 2rem 2rem 2rem;
+            max-width: 450px;
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .title {
@@ -36,31 +36,22 @@
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 0.5rem;
-            text-align: center;
         }
 
         .subtitle {
             color: #666;
             font-size: 0.9rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .divider {
-            border: none;
-            border-top: 1px solid #e0e0e0;
-            margin: 1rem 0 1.5rem 0;
-        }
-
-        .recaptcha-box {
+        .recaptcha-area {
             background: #f9f9f9;
             border: 1px solid #e0e0e0;
             border-radius: 4px;
-            padding: 1rem;
-            margin: 1rem 0 1.5rem 0;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
 
         .btn-verify {
@@ -69,7 +60,7 @@
             border: none;
             width: 100%;
             padding: 12px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
             border-radius: 4px;
             cursor: pointer;
@@ -81,16 +72,14 @@
         }
 
         .btn-verify:disabled {
-            background: #dadce0;
+            background: #ccc;
             cursor: not-allowed;
-            color: #5f6368;
         }
 
         .error-message {
-            color: #d93025;
+            color: #d32f2f;
             font-size: 0.8rem;
             margin-top: 0.8rem;
-            text-align: center;
             display: none;
         }
 
@@ -100,7 +89,6 @@
 
         .loading {
             display: none;
-            text-align: center;
             margin-top: 0.8rem;
             font-size: 0.8rem;
             color: #666;
@@ -110,43 +98,47 @@
             display: block;
         }
 
-        .security-section {
+        .security-footer {
             margin-top: 2rem;
             padding-top: 1.5rem;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #eee;
         }
 
-        .security-title {
+        .security-footer h3 {
             font-size: 1rem;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 1rem;
-            text-align: center;
         }
 
-        .security-text {
-            font-size: 0.85rem;
-            color: #555;
+        .security-footer p {
+            font-size: 0.8rem;
+            color: #666;
             margin: 0.6rem 0;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .security-text i {
-            margin-right: 8px;
+        .security-footer i {
             color: #1a73e8;
+            font-size: 0.8rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: none;
+            border-top: 1px solid #e0e0e0;
         }
     </style>
 </head>
 <body>
-    <div class="verify-container">
+    <div class="verify-box">
         <h1 class="title">Verificação de Segurança</h1>
         <p class="subtitle">Confirme que você é humano para continuar</p>
 
-        <hr class="divider">
-
-        <!-- Área do reCAPTCHA -->
-        <div class="recaptcha-box">
-            <!-- ⚠️ TROQUE A CHAVE ABAIXO PELA SUA SITE KEY DO GOOGLE -->
+        <div class="recaptcha-area">
             <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
         </div>
 
@@ -162,18 +154,11 @@
             <i class="fas fa-spinner fa-spin"></i> Verificando, redirecionando...
         </div>
 
-        <!-- Seção Ambiente seguro e protegido -->
-        <div class="security-section">
-            <h3 class="security-title">Ambiente seguro e protegido</h3>
-            <p class="security-text">
-                <i class="fas fa-shield-alt"></i> Isso ajuda a proteger o sistema contra acessos indevidos
-            </p>
-            <p class="security-text">
-                <i class="fas fa-clock"></i> Verificação automática de segurança em tempo real
-            </p>
-            <p class="security-text">
-                <i class="fas fa-robot"></i> Proteção avançada contra bots e ataques
-            </p>
+        <div class="security-footer">
+            <h3>Ambiente seguro e protegido</h3>
+            <p><i class="fas fa-shield-alt"></i> Isso ajuda a proteger o sistema contra acessos indevidos</p>
+            <p><i class="fas fa-clock"></i> Verificação automática de segurança em tempo real</p>
+            <p><i class="fas fa-robot"></i> Proteção avançada contra bots e ataques</p>
         </div>
     </div>
 
